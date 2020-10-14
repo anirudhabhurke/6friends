@@ -6,6 +6,9 @@ export class User {
       public name?: string;
 
       @prop({ required: true })
+      public email?: string;
+
+      @prop({ required: true })
       public password?: string;
 
       @prop({ required: true })

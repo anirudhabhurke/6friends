@@ -8,6 +8,9 @@ export class Post {
       @prop({ required: true })
       public postUrl?: string;
 
+      @prop({ required: true })
+      public caption?: string;
+
       @prop({ ref: () => 'User', required: true })
       public likes?: Ref<User>[];
 }
