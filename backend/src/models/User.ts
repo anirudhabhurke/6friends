@@ -3,25 +3,25 @@ import { Post } from './Post';
 
 export class User {
       @prop({ required: true })
-      public name?: string;
+      public username: string;
 
       @prop({ required: true })
-      public email?: string;
+      public email: string;
 
       @prop({ required: true })
-      public password?: string;
+      public password: string;
 
       @prop({ required: true })
-      public profilePictureUrl?: string;
+      public profilePictureUrl: string;
 
       @prop({ type: () => 'User', required: true })
-      public followers?: Ref<User>[];
+      public followers: Ref<User>[];
 
       @prop({ type: () => 'User', required: true })
-      public following?: Ref<User>[];
+      public following: Ref<User>[];
 
-      @prop({ ref: () => 'Post', required: true })
-      public posts?: Ref<Post>[];
+      @prop({ ref: () => 'Post' })
+      public posts: Ref<Post>[];
 }
 
-export default getModelForClass(User);
+export default getModelForClass(User, { schemaOptions: { timestamps: true } });

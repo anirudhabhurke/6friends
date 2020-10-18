@@ -25,6 +25,11 @@ export default buildSchema(`
             updatedAt: String!
       }
 
+      type loginOutput {
+            token: String!
+            userId: ID!
+      }
+
       input userData {
             email: String!
             username: String!
@@ -51,14 +56,14 @@ export default buildSchema(`
       }
 
       type RootQuery {
-            loginUser(userInput: loginData): LoginOutput!
-            posts(page: Int): PostsData!
+            loginUser(userInput: loginData): loginOutput!
+            feed(page: Int): PostsData!
             post(postId: ID!): Post!
             user: User!
       }
 
       schema {
            query: RootQuery
-           mutation: RootMutation 
+           mutation: RootMutation
       }
 `);
